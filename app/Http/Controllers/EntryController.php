@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class EntryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,7 @@ class EntryController extends Controller
     public function index()
     {
         return view('entries.index', [
-            'entries' => auth()->user()->entries()->paginate(10)
+            'entries' => auth()->user()->entries()->latest()->paginate(10)
         ]);
     }
 
