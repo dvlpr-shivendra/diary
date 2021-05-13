@@ -56,9 +56,8 @@ class EntryController extends Controller
      */
     public function show(Entry $entry)
     {
-        if (request()->user()->cannot('update', $entry)) {
-            abort(403);
-        }
+        $this->authorize('update', $entry);
+        
         return view('entries.show', compact('entry'));
     }
 
