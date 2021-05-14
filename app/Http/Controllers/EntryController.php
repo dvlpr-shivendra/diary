@@ -69,7 +69,7 @@ class EntryController extends Controller
      */
     public function edit(Entry $entry)
     {
-        //
+        return view('entries.edit', compact('entry'));
     }
 
     /**
@@ -81,7 +81,11 @@ class EntryController extends Controller
      */
     public function update(Request $request, Entry $entry)
     {
-        //
+        $entry->body = $request->body;
+        $entry->save();
+        
+        return redirect(route('entries.show', $entry))
+            ->with('success', 'Entry updated successfully');
     }
 
     /**
