@@ -69,6 +69,7 @@ class EntryController extends Controller
      */
     public function edit(Entry $entry)
     {
+        $this->authorize('update', $entry);
         return view('entries.edit', compact('entry'));
     }
 
@@ -81,6 +82,7 @@ class EntryController extends Controller
      */
     public function update(Request $request, Entry $entry)
     {
+        $this->authorize('update', $entry);
         $entry->body = $request->body;
         $entry->save();
         
@@ -96,6 +98,8 @@ class EntryController extends Controller
      */
     public function destroy(Entry $entry)
     {
+        $this->authorize('update', $entry);
+        
         $entry->delete();
         
         return redirect(route('entries.index'))
