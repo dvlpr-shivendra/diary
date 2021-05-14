@@ -96,6 +96,9 @@ class EntryController extends Controller
      */
     public function destroy(Entry $entry)
     {
-        //
+        $entry->delete();
+        
+        return redirect(route('entries.index'))
+            ->with('success', 'Entry updated successfully');
     }
 }

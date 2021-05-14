@@ -22,10 +22,15 @@
                                 Update
                             </a>
                             @endif
-                            <a href="{{ route('entries.show', $entry) }}"
+
+                            <form action="{{ route('entries.destroy', $entry) }}" method="post" onsubmit="return confirm('Are you sure?')" class="inline">
+                            @csrf
+                            @method('delete')
+                            <button
                                 class="bg-red-500 hover:bg-red-800 text-white text-xs font-bold py-2 px-4 rounded">
                                 Delete
-                            </a>
+                            </button>
+                            </form>
                         </div>
                     </div>
                 </div>
