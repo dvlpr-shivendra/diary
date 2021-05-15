@@ -14,11 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [EntryController::class, 'index']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/', fn () => auth()->check() ? redirect(route('entries.index')) : view('welcome'));
 
 Route::resource('entries', EntryController::class);
 
