@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css"
         integrity="sha512-5m1IeUDKtuFGvfgz32VVD0Jd/ySGX7xdLxhqemTmThxHdgqlgPdupWoSN8ThtUSLpAGBvA8DY2oO7jJCrGdxoA=="
         crossorigin="anonymous" />
+
+    <style>
+        trix-editor {
+            min-height: 50vh !important;
+        }
+
+        .trix-button-group--file-tools {
+            display: none !important;
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener('trix-file-accept', event => event.preventDefault())
+
+    </script>
 @endpush
 
 
