@@ -3,12 +3,12 @@
 @section('content')
 
 @foreach($entries as $entry)
-    <div class="py-12">
+    <div class="pt-12 @if($loop->last) {{ 'pb-12' }} @endif">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p>{{ $entry->created_at->format('d M, Y') }}</p>
-                    <div class="mt-4 mb-10 italic text-2xl">{{ strip_tags(Str::limit($entry->body, 100)) }}
+                    <div class="mt-4 mb-10 italic text-2xl">{{ strip_tags(Str::limit($entry->body, 320)) }}
                     </div>
                     <div class="flex justify-between">
                         <a href="{{ route('entries.show', $entry) }}"
