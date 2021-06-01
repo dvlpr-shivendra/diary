@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('entries.index') }}">
-                        Diary
+                    <x-application-logo class="w-20 h-20" />
                     </a>
                 </div>
 
