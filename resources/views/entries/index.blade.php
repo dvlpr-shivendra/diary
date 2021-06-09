@@ -8,7 +8,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p>{{ $entry->created_at->format('d M, Y') }}</p>
-                    <div class="mt-4 mb-10 italic text-2xl">{{ strip_tags(Str::limit($entry->body, 320)) }}
+                    <div class="mt-4 mb-10 text-2xl">{{ strip_tags(Str::limit($entry->body, 320)) }}
                     </div>
                     <div class="flex justify-between">
                         <a href="{{ route('entries.show', $entry) }}"

@@ -6,7 +6,7 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
                 <p>{{ $entry->created_at->format('d M, Y') }}</p>
-                <div class="my-4 italic text-2xl text-justify">{!! $entry->body !!}</div>
+                <div class="my-4 text-2xl text-justify">{!! $entry->body !!}</div>
             </div>
         </div>
     </div>
