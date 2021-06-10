@@ -2,41 +2,57 @@
 
 @section('content')
 
-@foreach($entries as $entry)
-    <div class="pt-12 @if($loop->last) {{ 'pb-12' }} @endif">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <p>{{ $entry->created_at->format('d M, Y') }}</p>
-                    <div class="mt-4 mb-10 text-2xl">{{ strip_tags(Str::limit($entry->body, 320)) }}
-                    </div>
-                    <div class="flex justify-between">
-                        <a href="{{ route('entries.show', $entry) }}"
-                            class="bg-green-700 hover:bg-blue-800 text-white text-xs font-bold py-2 px-4 rounded mr-2">
-                            Read more
-                        </a>
-                        <div>
-                            @if (today()->format('d M, Y') === $entry->created_at->format('d M, Y'))
-                            <a href="{{ route('entries.edit', $entry) }}"
-                                class="bg-blue-500 hover:bg-blue-800 text-white text-xs font-bold py-2 px-4 rounded mr-2">
-                                Update
-                            </a>
-                            @endif
+<div class="container my-12 mx-auto px-4 md:px-12">
+    <div class="flex flex-wrap -mx-1 lg:-mx-4">
 
-                            <form action="{{ route('entries.destroy', $entry) }}" method="post" onsubmit="return confirm('Are you sure?')" class="inline">
-                            @csrf
-                            @method('delete')
-                            <button
-                                class="bg-red-500 hover:bg-red-800 text-white text-xs font-bold py-2 px-4 rounded">
-                                Delete
-                            </button>
-                            </form>
-                        </div>
+    @forelse($entries as $entry)    
+        <!-- Column -->
+        <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+
+            <!-- Article -->
+            <article class="overflow-hidden rounded-lg bg-gray-300">
+
+                <p class="p-4 text-justify">
+                    {{ strip_tags(Str::limit($entry->body, 320)) }}
+                </p>
+
+                <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                    <a class="flex items-center no-underline hover:underline text-black" href="#">
+                        <p class="ml-2 text-sm">
+                            {{ $entry->created_at->format('d M, Y') }}
+                        </p>
+                    </a>
+                    <div>
+                    <a href="{{ route('entries.show', $entry) }}"
+                        class="bg-green-700 hover:bg-blue-800 text-white text-xs font-bold py-1 px-2 rounded mr-2">
+                        Read
+                    </a>
+                    @if (today()->format('d M, Y') === $entry->created_at->format('d M, Y'))
+                    <a href="{{ route('entries.edit', $entry) }}"
+                        class="bg-blue-500 hover:bg-blue-800 text-white text-xs font-bold py-1 px-2 rounded mr-2">
+                        Update
+                    </a>
+                    @endif
+                    <form action="{{ route('entries.destroy', $entry) }}" method="post" onsubmit="return confirm('Are you sure?')" class="inline">
+                        @csrf
+                        @method('delete')
+                        <button
+                            class="bg-red-500 hover:bg-red-800 text-white text-xs font-bold py-1 px-2 rounded">
+                            Delete
+                        </button>
+                    </form>
                     </div>
-                </div>
-            </div>
+                </footer>
+
+            </article>
+            <!-- END Article -->
+
         </div>
+        <!-- END Column -->
+    @empty
+    @endforelse
+
     </div>
-@endforeach
+</div>
 
 @endsection

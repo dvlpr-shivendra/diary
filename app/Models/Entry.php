@@ -9,5 +9,5 @@ class Entry extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['body'];
+    protected $fillable = ['body', 'user_id'];
 }

@@ -20,7 +20,7 @@ class EntryController extends Controller
     public function index()
     {
         return view('entries.index', [
-            'entries' => auth()->user()->entries()->latest()->paginate(10)
+            'entries' => auth()->user()->entries()->latest()->paginate(30)
         ]);
     }
 
