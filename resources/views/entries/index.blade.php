@@ -10,7 +10,7 @@
         <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 
             <!-- Article -->
-            <article class="overflow-hidden rounded-lg bg-gray-300 h-full flex flex-col justify-between">
+            <article class="bg-gray-50 overflow-hidden rounded-lg h-full flex flex-col justify-between layered-shadow">
 
                 <p class="p-4 text-justify">
                     {{ strip_tags(Str::limit($entry->body, 320)) }}
@@ -53,6 +53,10 @@
     @endforelse
 
     </div>
+</div>
+
+<div class="container pb-24 mx-auto px-4 md:px-12">
+    {{ $entries->links() }}
 </div>
 
 @endsection
