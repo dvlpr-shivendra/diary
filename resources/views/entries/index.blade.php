@@ -10,7 +10,7 @@
         <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 
             <!-- Article -->
-            <article class="overflow-hidden rounded-lg bg-gray-300">
+            <article class="overflow-hidden rounded-lg bg-gray-300 h-full flex flex-col justify-between">
 
                 <p class="p-4 text-justify">
                     {{ strip_tags(Str::limit($entry->body, 320)) }}
