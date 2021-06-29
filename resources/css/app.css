@@ -1,3 +1,14 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+.layered-shadow {
+    box-shadow:
+        0 4.8px 13.1px rgba(0, 0, 0, 0.07),
+        0 10.4px 31.6px rgba(0, 0, 0, 0.013),
+        0 18.8px 59.5px rgba(0, 0, 0, 0),
+        0 35.3px 106.1px rgba(0, 0, 0, -0.004),
+        0 78px 198.4px rgba(0, 0, 0, -0.003),
+        0 200px 475px rgba(0, 0, 0, -0.001);
+}

@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container my-12 mx-auto px-4 md:px-12">
+    <h2 class="text-2xl">My entries</h2>
     <div class="flex flex-wrap -mx-1 lg:-mx-4">
 
     @forelse($entries as $entry)    
@@ -50,6 +51,14 @@
         </div>
         <!-- END Column -->
     @empty
+        <div class="px-4">
+            <p class="mt-8 mb-2">No entries found.</p>
+            <a href="{{ route('entries.create') }}"
+                class="bg-green-700 hover:bg-blue-800 text-white font-bold py-1 px-2 rounded mr-2"
+            >
+                Create new
+            </a>
+        </div>
     @endforelse
 
     </div>
