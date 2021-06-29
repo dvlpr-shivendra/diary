@@ -4,7 +4,10 @@
             <x-application-logo class="w-20 h-20" />
         </a>
 
-        <a class="text-white border-2 px-4 py-1 rounded text-sm" href="{{ route('login') }}">{{ __('login') }}</a>
+        <div>
+            <a class="text-white bg-green-600 border-2 border-green-600 px-4 py-1 rounded text-sm" href="{{ route('register') }}">{{ __('Register') }}</a>
+            <a class="text-white border-2 px-4 py-1 rounded text-sm" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </div>
     </div>
     <div class="flex flex-col-reverse lg:flex-row justify-center h-screen">
         <div class="flex flex-col justify-center p-10 md:p-15 lg:p-20 h-2/3 md:h-3/6 lg:w-6/12 lg:h-full">
